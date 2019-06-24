@@ -11,6 +11,11 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             Test("42*?7=1974", 4);
             Test("42*?47=1974", -1);
             Test("2*12?=247", -1);
+            Console.WriteLine("Enter the string in the form of A*B=C with one ? at any numeric position");
+            string s = Console.ReadLine();
+            Console.WriteLine("Enter the numeric value of ? in the above provided string");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Test(s, n);
             Console.ReadKey(true);
         }
 
