@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
+namespace Tavisca.bootcamp.Languagebasics.Exercise1
 {
     class Program
     {
@@ -28,74 +28,71 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
         public static int FindDigit(string equation)
         {
             // Add your code here.
+            string stringValue;
             char[] delimit = { '*', '=' };
-            string[] var = equation.Split(delimit);
-            int a, b, c;
-            string s;
-            //A contains ?
-            if (var[0].Contains('?'))
+            string[] splitEqu = equation.Split(delimit);  //splitting equation using delimit char array and storing in string array
+            int firstNum, secondNum, thirdNum;
+            
+            //firstNum contains ?
+            if (splitEqu[0].Contains('?'))
             {
-                b = Convert.ToInt32(var[1]);
-                c = Convert.ToInt32(var[2]);
-                if(c % b != 0)
+                secondNum = Convert.ToInt32(splitEqu[1]); //converting string to int
+                thirdNum= Convert.ToInt32(splitEqu[2]);   //converting string to int
+                if (thirdNum % secondNum != 0)            //checking for whole number
                 {
                     return -1;
                 }
                 else
                 {
-                    a = c / b;
-                    s = a.ToString();
-                    if (s.Length == var[0].Length)
+                    firstNum= thirdNum / secondNum;
+                    stringValue = firstNum.ToString();              //converting result to string
+                    if (stringValue.Length == splitEqu[0].Length)   //comparing lengths of two string
                     {
-                        return Convert.ToInt32(s[var[0].IndexOf('?')].ToString());
+                        //returns numeric value of the character absent from string and denoted by ?
+                        return Convert.ToInt32(stringValue[splitEqu[0].IndexOf('?')].ToString());
                     }
                     else
                         return -1;
                 }               
 
             }
-
-            //B contains ?
-            if (var[1].Contains('?'))
+            //secondNum contains ?
+            if (splitEqu[1].Contains('?'))
             {
-                a = Convert.ToInt32(var[0]);
-                c = Convert.ToInt32(var[2]);
-                if (c % a != 0)
+                firstNum= Convert.ToInt32(splitEqu[0]);   //converting string to int
+                thirdNum = Convert.ToInt32(splitEqu[2]);  //converting string to int
+                if (thirdNum % firstNum != 0)             //checking for whole number
                 {
                     return -1;
                 }
                 else
                 {
-                    b = c / a;
-                    s = b.ToString();
-                    if (s.Length == var[1].Length)
+                    secondNum = thirdNum / firstNum;
+                    stringValue = secondNum.ToString();             //converting result to string
+                    if (stringValue.Length == splitEqu[1].Length)   //comparing lengths of two string
                     {
-                        return Convert.ToInt32(s[var[1].IndexOf('?')].ToString());
+                        //returns numeric value of the character absent from string and denoted by ?
+                        return Convert.ToInt32(stringValue[splitEqu[1].IndexOf('?')].ToString());
                     }
                     else
-                        return -1;
-                    
+                        return -1;                 
                 }
-
             }
-
-            //C contains ?
+            //thirdNum contains ?
             else
             {
-                a = Convert.ToInt32(var[0]);
-                b = Convert.ToInt32(var[1]);
-                c = a * b;
-                s = c.ToString();
-                if (s.Length == var[2].Length)
+                firstNum= Convert.ToInt32(splitEqu[0]);       //converting string to int
+                secondNum = Convert.ToInt32(splitEqu[1]);     //converting string to int
+                thirdNum = firstNum * secondNum;              
+                stringValue = thirdNum.ToString();            //converting result to string
+                if (stringValue.Length == splitEqu[2].Length) //comparing lengths of two string
                 {
-                    return Convert.ToInt32(s[var[2].IndexOf('?')].ToString());
+                    //returns numeric value of the character absent from string and denoted by ?
+                    return Convert.ToInt32(stringValue[splitEqu[2].IndexOf('?')].ToString());
                 }
                 else
-                    return -1;
-
-
-            }
-            throw new NotImplementedException();
+                    return -1;                
+            }            
         }
     }
 }
