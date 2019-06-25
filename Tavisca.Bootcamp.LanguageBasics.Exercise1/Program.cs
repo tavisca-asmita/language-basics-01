@@ -1,6 +1,6 @@
 using System;
 
-namespace Tavisca.bootcamp.Languagebasics.Exercise1
+namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 {
     class Program
     {
